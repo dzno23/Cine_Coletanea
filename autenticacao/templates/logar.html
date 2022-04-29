@@ -35,6 +35,13 @@
                     <h2 class="titulo_area_cadastrar">Login</h2>
                     <input name="username" class="input_cadastrar input_cadastrar_nome" type="text" placeholder="usuário..."><br>
                     <input name="senha" class="input_cadastrar input_cadastrar_senha" type="password" placeholder="senha...">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {{message.tags}}">
+                                {{message}} 
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                     <br>
                     <input class="btn_logar" type="submit" value="LOGAR">
                     <a class="link-senha" href="">Esqueci minha senha.</a>
