@@ -1,0 +1,113 @@
+.sidebar{
+    background-color: #B42B2B;
+    height: 100vh;
+}
+
+.cor_branca{
+    color: white;
+}
+
+.logo_sidebar{
+    text-align: center;
+    margin-top: 50%;
+}
+
+.img_logo_sidebar{
+    width: 100%;
+}
+
+.logo{
+    font-size: 70px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.corpo_sidebar{
+    margin-top: 50px;
+    text-align: left;
+}
+
+.titulo{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.descricao{
+    font-size: 20px;
+}
+
+.btn_logar{
+    color: #B42B2B;
+    font-size: 20px;
+    font-weight: bold;
+    border: 2px solid #B42B2B;
+    padding: 5px 10px 5px 10px;
+
+}
+
+.btn_logar:hover{
+    text-decoration: none;
+    color: #B42B2B;
+}
+
+.area_cadastrar{
+    text-align: left;
+}
+
+.titulo_area_cadastrar{
+    font-size: 30px;
+    color: #B42B2B;
+    margin-top: 30%;
+    font-weight: bold;
+}
+
+.input_cadastrar{
+    width: 60%;
+    border-color: #B42B2B;
+    background-color: #C4C4C4;
+    padding: 4px;
+    outline: 0;
+    font-size: 20px;
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    background-position-x: 10px;
+    background-position-y: 4px;
+    padding-left: 60px;
+    margin-bottom: 10px;
+}
+
+.input_cadastrar_nome{
+    background-image: url('/static/autenticacao/img/user.png');
+}
+
+.input_cadastrar_email{
+    background-image: url('/static/autenticacao/img/email.png');
+}
+
+.input_cadastrar_senha{
+    background-image: url('/static/autenticacao/img/senha.png');
+}
+
+.btn_cadastrar{
+    color: white;
+    font-size: 20px;
+    border: 2px solid white;
+    padding: 5px 10px 5px 10px;
+    margin-top: 4%;
+}
+
+.btn_cadastrar:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.link-senha{
+    padding-left: 30px;
+    color:#B42B2B;
+}
+
+.link-senha:hover{
+    text-decoration: none;
+    font-weight: 500;
+    color: #B42B2B;
+}

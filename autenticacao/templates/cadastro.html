@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'autenticacao/css/autenticacao.css' %}">
+{% endblock %}
+
+{% block 'title' %}Cadastre-se | Cine Coletânea{% endblock %}
+
+{% block 'body' %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <div class="logo_sidebar">
+                    <h2 class="logo">
+                        <img class="img_logo_sidebar" src="{% static 'autenticacao/img/logo.png' %}">
+                    </h2>
+                </div>
+                <div class="corpo_sidebar">
+                    <div>
+                        <h2 class="titulo cor_branca">Cadastre-se</h2>
+                    </div>
+                    <div>
+                        <p class="cor_branca descricao">Catalogue, avalie e registre as resenhas dos seus filmes e séries favoritos!</p><br>
+                        <a class="btn_cadastrar" href="{% url 'logar' %}">LOGAR</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-9">
+                <div class="area_cadastrar">
+                    <form action="{% url 'cadastro' %}" method="POST">{% csrf_token %}
+                    <h2 class="titulo_area_cadastrar">Cadastro</h2>
+                    <input name="username" class="input_cadastrar input_cadastrar_nome" type="text" placeholder="usuário..."><br>
+                    <input name="email" class="input_cadastrar input_cadastrar_email" type="text" placeholder="e-mail..."><br>
+                    <input name="password" class="input_cadastrar input_cadastrar_senha" type="password" placeholder="senha...">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {{message.tags}}">
+                                {{message}} 
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    <br>
+                    <input class="btn_logar" type="submit" value="CADASTRAR">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
