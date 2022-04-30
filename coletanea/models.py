@@ -36,7 +36,7 @@ class Item(models.Model):
     
     titulo = models.TextField()
     resenha = models.TextField()
-    tipo = models.CharField(max_length=2, choices=tipo_choices, default='F')
+    tipo = models.CharField(max_length=1, choices=tipo_choices, default='F')
     categoria = models.CharField(max_length=4, choices=categoria_choices, default='AC')
     ano = models.DateField()
     temporadas = models.IntegerField()
