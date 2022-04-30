@@ -14,7 +14,7 @@ class Item(models.Model):
                         ('CM', 'Comédia'),
                         ('CMT', 'Comédia de Terror'),
                         ('CMA', 'Comédia de Ação'),
-                        ('CMD', 'Comédia Tramádica'),
+                        ('CMD', 'Comédia Dramádica'),
                         ('CMR', 'Comédia Romântica'),
                         ('DA', 'Dança'),
                         ('DOC', 'Documentário'),
