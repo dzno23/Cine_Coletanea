@@ -1,10 +1,7 @@
+from ast import Delete
 from django.db import models
-
-class Capa(models.Model):
-    capa = models.FileField(upload_to='capas')
-
-    def __str__(self) -> str:
-        return self.arquivo.url
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.auth.models import User
 
 class Item(models.Model):
     tipo_choices = (('F', 'Filme'), ('S', 'Série'))
@@ -34,6 +31,8 @@ class Item(models.Model):
     
     rating_stars = (1, 2, 3, 4, 5)
     
+    user = models.ForeignKey(User, on_delete=Delete, null=True, blank=True)
+    capa = models.ImageField(upload_to='capas/', null=True, blank=True)
     titulo = models.TextField()
     resenha = models.TextField()
     tipo = models.CharField(max_length=1, choices=tipo_choices, default='F')
@@ -41,7 +40,12 @@ class Item(models.Model):
     ano = models.DateField()
     temporadas = models.IntegerField()
     duracao = models.DurationField()
-    rating = models.IntegerField()
+    rating = models.IntegerField(default=0, 
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0),
+        ]
+    )
 
     def __str__(self) -> str:
         return self.titulo

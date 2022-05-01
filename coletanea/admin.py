@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Capa, Item
+from .models import Item
 
-admin.site.register(Capa)
+#admin.site.register(Capa)
 admin.site.register(Item)

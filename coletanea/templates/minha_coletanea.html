@@ -5,9 +5,11 @@
     <link rel="stylesheet" href="{% static 'coletanea/css/coletanea.css' %}">
 {% endblock %}
 
-{% block 'title' %}Cadastre-se | Cine Coletânea{% endblock %}
+{% block 'title' %}Minha Cine Coletânea{% endblock %}
 
 {% block 'body' %}
+
+
 <div class="sidebar">
     <div class="container">
         <div class="conteiner-fluid">
@@ -23,41 +25,22 @@
     </div>
 
     <div class="container-fluid">
-        <a href="#">
-            <div class="cartao">
-                <div class="cartao-imagem">
-                    <img class="imagem_cartao" src="{% static '/coletanea/img/twd.jpg' %}">
-                </div>
-                <div class="rating">★★★★★</div>
-                <div class="titulo-cartao">
-                    <p class="cor_vermelha">The Walking Dead</p>
-                </div>
-            </div>
-        </a>
+        
+        {% for item in item %}
 
-        <a href="#">
-            <div class="cartao">
-                <div class="cartao-imagem">
-                    <img class="imagem_cartao" src="{% static '/coletanea/img/matrix.jpg' %}">
+            <a href="#">
+                <div class="cartao">
+                    <div class="cartao-imagem">
+                        <img class="imagem_cartao" src="{{item.capa.url}}">
+                    </div>
+                    <div class="rating">★★★★★</div>
+                    <div class="titulo-cartao">
+                        <p class="cor_vermelha">{{item.titulo}}</p>
+                    </div>
                 </div>
-                <div class="rating">★★</div>
-                <div class="titulo-cartao">
-                    <p class="cor_vermelha">Matrix I</p>
-                </div>
-            </div>
-        </a>
+            </a>
 
-        <a href="#">
-            <div class="cartao">
-                <div class="cartao-imagem">
-                    <img class="imagem_cartao" src="{% static '/coletanea/img/bacurau.jpeg' %}">
-                </div>
-                <div class="rating">★★★★</div>
-                <div class="titulo-cartao">
-                    <p class="cor_vermelha">Bacurau</p>
-                </div>
-            </div>
-        </a>
+        {% endfor %}
 
         <a href="#">
             <div class="cartao-novo-item">
@@ -70,7 +53,7 @@
             </div>
         </a>
 
-
+       
     </div>
 
 </div>
