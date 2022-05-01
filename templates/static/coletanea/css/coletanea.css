@@ -66,3 +66,11 @@
     box-shadow: 2px 2px 2px 2px #b42b2b70;
 }
 
+.btn_editar_item{
+    color: white;
+    background-color: #B42B2B;
+    font-size: 20px;
+    border: 2px solid white;
+    padding: 5px 10px 5px 10px;
+    margin-top: 4%;
+}

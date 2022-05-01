@@ -28,7 +28,7 @@
         
         {% for item in item %}
 
-            <a href="#">
+            <div type="button" data-toggle="modal" data-target="#modal-{{item.id}}">
                 <div class="cartao">
                     <div class="cartao-imagem">
                         <img class="imagem_cartao" src="{{item.capa.url}}">
@@ -38,7 +38,96 @@
                         <p class="cor_vermelha">{{item.titulo}}</p>
                     </div>
                 </div>
-            </a>
+            </div>
+
+            <div class="modal fade" id="modal-{{item.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div style="background-color: #B42B2B;" class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title job-modal-titulo cor_branca" id="exampleModalLabel">{{item.titulo}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body cor_branca">
+                            <div>
+                                <img src="{{item.capa.url}}" width="50%">                             
+                                <h6 class="titulo-body">Resenha:</h6>
+            
+                                <p>{{item.resenha}}</p>
+            
+                                <div class="row">
+            
+                                    <div class="col-4">
+            
+                                        <h6 class="titulo-body">Tipo:</h6>
+            
+                                        <p>
+                                            {{item.get_tipo_display}}
+                                        </p>
+            
+                                    </div>
+            
+                                    <div class="col-4">
+            
+                                        <h6 class="titulo-body">Categoria:</h6>
+            
+                                        <p>
+                                            {{item.get_categoria_display}}
+                                        </p>
+            
+                                    </div>
+            
+                                    <div class="col-4">
+            
+                                        <h6 class="titulo-body">Ano:</h6>
+            
+                                        <p>{{item.ano}}</p>
+            
+                                    </div>
+
+
+                                    {% if item.tipo == 'S' %}
+                                        <div class="col-4">
+                                            
+                                            <h6 class="titulo-body">Temporadas:</h6>
+                
+                                            <p>{{item.temporadas}}</p>
+                
+                                        </div>
+                                    {% endif %}
+                                    
+                                    {% if item.tipo == 'F' %}
+                                        <div class="col-4">
+                
+                                            <h6 class="titulo-body">Duração:</h6>
+                
+                                            <p>{{item.duracao}}</p>
+                
+                                        </div>
+                                    {% endif %}
+
+                                    <div class="col-4">
+            
+                                        <h6 class="titulo-body">Avaliação:</h6>
+            
+                                        <p>{{item.rating}}</p>
+            
+                                    </div>
+            
+                                    
+            
+                                </div>
+            
+                                <button class="btn_editar_item">Editar item</button>
+            
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+            
 
         {% endfor %}
 
@@ -52,11 +141,11 @@
                 </div>
             </div>
         </a>
-
-       
+                   
     </div>
 
 </div>
+
 
     
 
