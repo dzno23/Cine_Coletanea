@@ -14,10 +14,10 @@
     <div class="container">
         <div class="conteiner-fluid">
             <div class="row">
-                <div class="col titulo">
-                    <h1>Minha Coletânea</h1>
+                <div class="col-sm-8">
+                    <h1 class="titulo">Minha Coletânea</h1>
                 </div>
-                <div class="col">
+                <div class="col-sm-4">
                     <button>Filtrar</button>
                 </div>
             </div>
@@ -39,9 +39,9 @@
                     </div>
                 </div>
             </div>
-
-            <div class="modal fade" id="modal-{{item.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                            <!-- MODAL | MODAL | MODAL -->
+            <div class="modal fade bd-example-modal-lg" id="modal-{{item.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
                     <div style="background-color: #B42B2B;" class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title job-modal-titulo cor_branca" id="exampleModalLabel">{{item.titulo}}</h5>
@@ -50,77 +50,44 @@
                             </button>
                         </div>
                         <div class="modal-body cor_branca">
-                            <div>
-                                <img src="{{item.capa.url}}" width="50%">                             
-                                <h6 class="titulo-body">Resenha:</h6>
-            
-                                <p>{{item.resenha}}</p>
-            
-                                <div class="row">
-            
-                                    <div class="col-4">
-            
-                                        <h6 class="titulo-body">Tipo:</h6>
-            
-                                        <p>
-                                            {{item.get_tipo_display}}
-                                        </p>
-            
-                                    </div>
-            
-                                    <div class="col-4">
-            
-                                        <h6 class="titulo-body">Categoria:</h6>
-            
-                                        <p>
-                                            {{item.get_categoria_display}}
-                                        </p>
-            
-                                    </div>
-            
-                                    <div class="col-4">
-            
-                                        <h6 class="titulo-body">Ano:</h6>
-            
-                                        <p>{{item.ano}}</p>
-            
-                                    </div>
-
-
-                                    {% if item.tipo == 'S' %}
-                                        <div class="col-4">
-                                            
-                                            <h6 class="titulo-body">Temporadas:</h6>
-                
-                                            <p>{{item.temporadas}}</p>
-                
-                                        </div>
-                                    {% endif %}
-                                    
-                                    {% if item.tipo == 'F' %}
-                                        <div class="col-4">
-                
-                                            <h6 class="titulo-body">Duração:</h6>
-                
-                                            <p>{{item.duracao}}</p>
-                
-                                        </div>
-                                    {% endif %}
-
-                                    <div class="col-4">
-            
-                                        <h6 class="titulo-body">Avaliação:</h6>
-            
-                                        <p>{{item.rating}}</p>
-            
-                                    </div>
-            
-                                    
-            
+                            <div class="row">
+                                <div class="col-md-4">
+                                        <img src="{{item.capa.url}}" width="100%"> 
                                 </div>
-            
-                                <button class="btn_editar_item">Editar item</button>
-            
+                                <div class="col-md-8 .ml-auto">
+                                    <div class="row">
+                                        <h6 class="titulo-body">Tipo: {{item.get_tipo_display}}</h6>
+                                    </div>
+                                    <div class="row">
+                                        <h6 class="titulo-body">Categoria: {{item.get_categoria_display}}</h6>
+                                    </div>
+                                    <div class="row">
+                                        <h6 class="titulo-body">Ano: {{item.ano}}</h6>
+                                    </div>
+                                    <div class="row">
+                                        {% if item.tipo == 'S' %}
+                                            <h6 class="titulo-body">Temporadas: {{item.temporadas}}</h6>
+                                        {% endif %}
+                                    </div>
+                                    <div class="row">
+                                        {% if item.tipo == 'F' %}
+                                            <h6 class="titulo-body">Duração: {{item.duracao}}</h6>
+                                        {% endif %}
+                                    </div>
+                                    <div class="row">
+                                        <h6 class="titulo-body">Avaliação: {{item.rating}}</h6>
+                                    </div>
+                                </div>
+
+                                <div class="container-fluid">
+                                    <br>
+                                    <h6 class="titulo-body">Resenha:</h6>
+                                    <p>{{item.resenha}}</p>
+                                </div>
+                                
+                                <div class="container-fluid">
+                                    <button class="btn_editar_item">Editar item</button>
+                                </div>
                             </div>
                         </div>
                     
@@ -131,7 +98,7 @@
 
         {% endfor %}
 
-        <a href="#">
+        <a href="">
             <div class="cartao-novo-item">
                 <div class="titulo">
                     <img class="imagem_cartao" src="{% static '/coletanea/img/novo-item2.jpg' %}">

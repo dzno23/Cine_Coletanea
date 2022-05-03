@@ -1,6 +1,7 @@
 .sidebar{
     background-color: #FCD9D9;
     height: 100vmax;
+    padding: 20px 0px 0px 0px;
 }
 
 .cartao{
@@ -30,7 +31,7 @@
 
 .titulo{
     color: #B42B2B;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     text-align: left;
 }
