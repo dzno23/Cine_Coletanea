@@ -6,8 +6,29 @@ from django.contrib.auth.models import User
 def minha_coletanea(request):
     if request.user.is_authenticated:
         if request.method == "GET":
-            item = Item.objects.filter(user=request.user)
-            return render(request, 'minha_coletanea.html', {'item': item})
+       
+            tipo = request.GET.get('tipo')
+            rating = request.GET.get('rating')
+            categoria = request.GET.get('categoria')
+            
+            if tipo or rating or categoria:
+                if not tipo:
+                    tipo = 'F'
+                
+                if not rating:
+                    rating = 5
+                
+                if not categoria:
+                    categoria = ''
+                
+                item = Item.objects.filter(user=request.user)\
+                    .filter(tipo__in = tipo)\
+                    .filter(rating__in = rating)\
+                    .filter(categoria__in=categoria)
+
+            else:
+                item = Item.objects.filter(user=request.user)
+                return render(request, 'minha_coletanea.html', {'item': item})
     
     else:
         return render(request, 'logar.html')

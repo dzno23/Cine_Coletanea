@@ -11,16 +11,70 @@
 
 
 <div class="sidebar">
-    <div class="container">
-        <div class="conteiner-fluid">
-            <div class="row">
-                <div class="col-sm-8">
-                    <h1 class="titulo">Minha Coletânea</h1>
-                </div>
-                <div class="col-sm-4">
-                    <button>Filtrar</button>
-                </div>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-sm">
+            <form action="" method="GET"> {% csrf_token %}
+                <p class="titulo-cartao cor_vermelha">Tipo:</p>
+                <select class="form-control" name="tipo">
+                    <option value=''></option>
+                    <option value='F'>Filme</option>
+                    <option value='S'>Série</option>
+               </select>
             </div>
+    
+    
+            <div class="col-sm">
+                <p class="titulo-cartao cor_vermelha">Estrelas:</p>
+                <select class="form-control" name="rating">
+                    <option value='0'></option>
+                    <option value='1'>★</option>
+                    <option value='2'>★★</option>
+                    <option value='3'>★★★</option>
+                    <option value='4'>★★★★</option>
+                    <option value='5'>★★★★★</option>
+               </select>
+            </div>
+    
+            <div class="col-sm">
+                <p class="titulo-cartao cor_vermelha">Categoria</p>
+                <select class="form-control" name="categoria">
+                    <option value=''></option>
+                    <option value='AC'>Ação</option>
+                     <option value='AV'>Aventura</option>
+                     <option value='CM'>Comédia</option>
+                     <option value='CMT'>Comédia de Terror</option>
+                     <option value='CMA'>Comédia de Ação</option>
+                     <option value='CMD'>Comédia Dramádica</option>
+                     <option value='CMR'>Comédia Romântica</option>
+                     <option value='DA'>Dança</option>
+                     <option value='DOC'>Documentário</option>
+                     <option value='DOCF'>Docuficção</option>
+                     <option value='DR'>Drama</option>
+                     <option value='FA'>Fantasia</option>
+                     <option value='FAC'>Fantasia Científica</option>
+                     <option value='FC'>Ficção Científica</option>
+                     <option value='FG'>Filmes de Guerra</option>
+                     <option value='MI'>Mistério</option>
+                     <option value='MU'>Musical</option>
+                     <option value='FP'>Filme Policial</option>
+                     <option value='RO'>Romance</option>
+                     <option value='TE'>Terror</option>
+                     <option value='TH'>Thriller</option>
+                </select>
+                <br>
+                <div class="float-right">
+                    <input type="submit" class="btn_filtrar" value="FILTRAR">
+                    <a class="cor_vermelha" href="">Limpar filtro</a>
+                </div>
+
+            </form>
+            </div>
+    
+            
         </div>
     </div>
 
@@ -39,7 +93,9 @@
                     </div>
                 </div>
             </div>
-                            <!-- MODAL | MODAL | MODAL -->
+                            
+                            
+            <!-- MODAL | MODAL | MODAL -->
             <div class="modal fade bd-example-modal-lg" id="modal-{{item.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div style="background-color: #B42B2B;" class="modal-content">
@@ -94,6 +150,7 @@
                     </div>
                 </div>
             </div>
+            <!-- FIM MODAL | FIM MODAL | FIM MODAL -->
             
 
         {% endfor %}
