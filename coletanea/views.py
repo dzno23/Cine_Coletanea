@@ -13,7 +13,7 @@ def minha_coletanea(request):
             
             if tipo or rating or categoria:
                 if not tipo:
-                    tipo = 'F'
+                    tipo = ''
                 
                 if not rating:
                     rating = 5
@@ -23,8 +23,10 @@ def minha_coletanea(request):
                 
                 item = Item.objects.filter(user=request.user)\
                     .filter(tipo__in = tipo)\
+                    .filter(categoria__in=categoria)\
                     .filter(rating__in = rating)\
-                    .filter(categoria__in=categoria)
+                
+                return render(request, 'minha_coletanea.html', {'item': item})
 
             else:
                 item = Item.objects.filter(user=request.user)

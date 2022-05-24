@@ -27,6 +27,7 @@ class Item(models.Model):
                         ('RO', 'Romance'),
                         ('TE', 'Terror'),
                         ('TH', 'Thriller'),
+                        ('', 'none')
                         )
     
     rating_stars = (1, 2, 3, 4, 5)
