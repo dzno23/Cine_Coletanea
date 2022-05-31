@@ -24,7 +24,7 @@ def minha_coletanea(request):
                 item = Item.objects.filter(user=request.user)\
                     .filter(tipo__in = tipo)\
                     .filter(categoria__in=categoria)\
-                    .filter(rating__in = rating)\
+                    .filter(rating__in = rating)
                 
                 return render(request, 'minha_coletanea.html', {'item': item})
 
