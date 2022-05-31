@@ -27,10 +27,14 @@ class Item(models.Model):
                         ('RO', 'Romance'),
                         ('TE', 'Terror'),
                         ('TH', 'Thriller'),
-                        ('', 'none')
-                        )
+                        ('-', 'none'))
     
-    rating_stars = (1, 2, 3, 4, 5)
+    rating_stars = (('0', '☆☆☆☆☆'),
+                    ('1', '★☆☆☆☆'),
+                    ('2', '★★☆☆☆'),
+                    ('3', '★★★☆☆'),
+                    ('4', '★★★★☆'),
+                    ('5', '★★★★★'))
     
     user = models.ForeignKey(User, on_delete=Delete, null=True, blank=True)
     capa = models.ImageField(upload_to='capas/', null=True, blank=True)
@@ -41,12 +45,13 @@ class Item(models.Model):
     ano = models.DateField()
     temporadas = models.IntegerField()
     duracao = models.DurationField()
-    rating = models.IntegerField(default=0, 
-        validators=[
-            MaxValueValidator(5),
-            MinValueValidator(0),
-        ]
-    )
+    rating = models.CharField(max_length=1, choices=rating_stars, default='0')
+    # rating = models.IntegerField(default=0, 
+    #     validators=[
+    #         MaxValueValidator(5),
+    #         MinValueValidator(0),
+    #     ]
+    # )
 
     def __str__(self) -> str:
         return self.titulo

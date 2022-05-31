@@ -20,7 +20,7 @@
             <form action="" method="GET"> {% csrf_token %}
                 <p class="titulo-cartao cor_vermelha">Tipo:</p>
                 <select class="form-control" name="tipo">
-                    <option value=''></option>
+                    <option value=''>-</option>
                     <option value='F'>Filme</option>
                     <option value='S'>Série</option>
                </select>
@@ -30,11 +30,12 @@
             <div class="col-sm">
                 <p class="titulo-cartao cor_vermelha">Estrelas:</p>
                 <select class="form-control" name="rating">
-                    <option value='0'></option>
-                    <option value='1'>★</option>
-                    <option value='2'>★★</option>
-                    <option value='3'>★★★</option>
-                    <option value='4'>★★★★</option>
+                    <option value=''>-</option>
+                    <option value='0'>☆☆☆☆☆</option>
+                    <option value='1'>★☆☆☆☆</option>
+                    <option value='2'>★★☆☆☆</option>
+                    <option value='3'>★★★☆☆</option>
+                    <option value='4'>★★★★☆</option>
                     <option value='5'>★★★★★</option>
                </select>
             </div>
@@ -42,7 +43,7 @@
             <div class="col-sm">
                 <p class="titulo-cartao cor_vermelha">Categoria</p>
                 <select class="form-control" name="categoria">
-                    <option value=''></option>
+                    <option value=''>-</option>
                     <option value='AC'>Ação</option>
                      <option value='AV'>Aventura</option>
                      <option value='CM'>Comédia</option>
@@ -87,7 +88,15 @@
                     <div class="cartao-imagem">
                         <img class="imagem_cartao" src="{{item.capa.url}}">
                     </div>
-                    <div class="rating">★★★★★</div>
+                    <div class="rating">
+                        {% if item.rating == '0' %}☆☆☆☆☆{% endif %}
+                        {% if item.rating == '1' %}★☆☆☆☆{% endif %}
+                        {% if item.rating == '2' %}★★☆☆☆{% endif %}
+                        {% if item.rating == '3' %}★★★☆☆{% endif %}
+                        {% if item.rating == '4' %}★★★★☆{% endif %}
+                        {% if item.rating == '5' %}★★★★★{% endif %}
+
+                    </div>
                     <div class="titulo-cartao">
                         <p class="cor_vermelha">{{item.titulo}}</p>
                     </div>
