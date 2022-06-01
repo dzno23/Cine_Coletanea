@@ -10,6 +10,7 @@ def minha_coletanea(request):
             tipo = request.GET.get('tipo')
             rating = request.GET.get('rating')
             categoria = request.GET.get('categoria')
+
             
             if not tipo and not rating and not categoria:
                 item = Item.objects.filter(user=request.user)
@@ -46,7 +47,7 @@ def minha_coletanea(request):
             #         tipo = ''
                 
             #     if not rating:
-            #         rating = 5
+            #         rating = ''
                 
             #     if not categoria:
             #         categoria = ''
@@ -64,3 +65,17 @@ def minha_coletanea(request):
     
     else:
         return render(request, 'logar.html')
+
+
+# def item(request):
+#     if request.user.is_authenticated:
+#         if request.method == "POST":
+
+#             id = request.POST.get('id')
+#             item = Item.objects.filter(id=id)
+
+#             return render(request, 'item.html', {'item': item})
+    
+
+#     else:
+#         return render(request, '/auth/logar.html')

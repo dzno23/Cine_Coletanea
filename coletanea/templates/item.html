@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'coletanea/css/coletanea.css' %}">
+    {% block 'title' %}{{item.titulo}}{% endblock 'title' %}
+{% endblock 'head' %}
+
+{% block 'body' %}
+
+{{item.titulo}}
+
+{% endblock 'body' %}
