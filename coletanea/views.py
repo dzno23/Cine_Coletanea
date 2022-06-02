@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from .models import Item
 from django.contrib.auth.models import User
 
@@ -43,43 +43,16 @@ def minha_coletanea(request):
             elif tipo and rating and categoria:
                 item = Item.objects.filter(user=request.user).filter(tipo = tipo).filter(rating = rating).filter(categoria = categoria)
                 return render(request, 'minha_coletanea.html', {'item': item})
-
-
-
-            # if tipo or rating or categoria:
-            #     if not tipo:
-            #         tipo = ''
-                
-            #     if not rating:
-            #         rating = ''
-                
-            #     if not categoria:
-            #         categoria = ''
-                
-            #     item = Item.objects.filter(user=request.user)\
-            #         .filter(tipo__in = tipo)\
-            #         .filter(categoria__in=categoria)\
-            #         .filter(rating__in = rating)
-                
-            #     return render(request, 'minha_coletanea.html', {'item': item})
-
-            # else:
-            #     item = Item.objects.filter(user=request.user)
-            #     return render(request, 'minha_coletanea.html', {'item': item})
-    
+  
     else:
         return render(request, 'logar.html')
 
 
-# def item(request):
-#     if request.user.is_authenticated:
-#         if request.method == "POST":
-
-#             id = request.POST.get('id')
-#             item = Item.objects.filter(id=id)
-
-#             return render(request, 'item.html', {'item': item})
-    
-
-#     else:
-#         return render(request, '/auth/logar.html')
+def item(request, id):
+    if request.user.is_authenticated:
+        if request.method == "GET":
+            item = get_object_or_404(Item, id=id)
+            return render(request, 'item.html', {'item': item})
+   
+    else:
+        return render(request, '/auth/logar.html')
