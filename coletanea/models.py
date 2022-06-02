@@ -7,9 +7,12 @@ class Item(models.Model):
     tipo_choices = (('F', 'Filme'), ('S', 'Série'))
 
     categoria_choices = (('AC', 'Ação'), 
+                        ('AV','Aventura'),
+                        ('CM', 'Comédia'),
+                        ('AC', 'Ação'),
                         ('AV', 'Aventura'),
                         ('CM', 'Comédia'),
-                        ('CMT', 'Comédia de Terror'),
+                        ('CMT','Comédia de Terror'),
                         ('CMA', 'Comédia de Ação'),
                         ('CMD', 'Comédia Dramádica'),
                         ('CMR', 'Comédia Romântica'),
@@ -26,8 +29,7 @@ class Item(models.Model):
                         ('FP', 'Filme Policial'),
                         ('RO', 'Romance'),
                         ('TE', 'Terror'),
-                        ('TH', 'Thriller'),
-                        ('-', 'none'))
+                        ('TH', 'Thriller'))
     
     rating_stars = (('0', '☆☆☆☆☆'),
                     ('1', '★☆☆☆☆'),
@@ -40,8 +42,8 @@ class Item(models.Model):
     capa = models.ImageField(upload_to='capas/', null=True, blank=True)
     titulo = models.TextField()
     resenha = models.TextField()
-    tipo = models.CharField(max_length=1, choices=tipo_choices, default='F')
-    categoria = models.CharField(max_length=4, choices=categoria_choices, default='AC')
+    tipo = models.CharField(max_length=1, choices=tipo_choices, default='')
+    categoria = models.CharField(max_length=4, choices=categoria_choices, default='')
     ano = models.DateField()
     temporadas = models.IntegerField()
     duracao = models.DurationField()

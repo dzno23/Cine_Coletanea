@@ -17,27 +17,31 @@ def minha_coletanea(request):
                 return render(request, 'minha_coletanea.html', {'item': item})
             
             elif tipo and not rating and not categoria:
-                item = Item.objects.filter(user=request.user).filter(tipo__in = tipo)
+                item = Item.objects.filter(user=request.user).filter(tipo = tipo)
                 return render(request, 'minha_coletanea.html', {'item': item})
 
             elif rating and not tipo and not categoria:
-                item = Item.objects.filter(user=request.user).filter(rating__in = rating)
+                item = Item.objects.filter(user=request.user).filter(rating = rating)
                 return render(request, 'minha_coletanea.html', {'item': item})
 
             elif categoria and not tipo and not rating:
-                item = Item.objects.filter(user=request.user).filter(categoria__in = categoria)
+                item = Item.objects.filter(user=request.user).filter(categoria = categoria)
                 return render(request, 'minha_coletanea.html', {'item': item})
 
             elif tipo and rating and not categoria:
-                item = Item.objects.filter(user=request.user).filter(tipo__in = tipo).filter(rating__in = rating)
+                item = Item.objects.filter(user=request.user).filter(tipo = tipo).filter(rating = rating)
                 return render(request, 'minha_coletanea.html', {'item': item})
 
             elif tipo and categoria and not rating:
-                item = Item.objects.filter(user = request.user).filter(tipo__in = tipo).filter(categoria__in = categoria)
+                item = Item.objects.filter(user = request.user).filter(tipo = tipo).filter(categoria = categoria)
                 return render(request, 'minha_coletanea.html', {'item': item})
 
             elif rating and categoria and not tipo:
-                item = Item.objects.filter(user=request.user).filter(rating__in = rating).filter(categoria__in = categoria)
+                item = Item.objects.filter(user=request.user).filter(rating = rating).filter(categoria = categoria)
+                return render(request, 'minha_coletanea.html', {'item': item})
+
+            elif tipo and rating and categoria:
+                item = Item.objects.filter(user=request.user).filter(tipo = tipo).filter(rating = rating).filter(categoria = categoria)
                 return render(request, 'minha_coletanea.html', {'item': item})
 
 
